@@ -1,2 +1,2 @@
 # sample-templete
-htmlテンプレートとsassのの基本セット
+cakePHPのviewテンプレートとsassの基本セット
