@@ -1,0 +1,99 @@
+@charset "utf-8";
+
+// フォントサイズ-相対単位rem
+
+@mixin fontsize($size: 14, $base: $f_size_base, $imp : 0) {
+	@if $imp == 0 {
+		font-size: $size + px; // IE8用
+ 		font-size: ($size / $base) * 1rem;
+	} @else {
+		font-size: $size + px !important; // IE8用
+ 		font-size: ($size / $base) * 1rem !important;
+	}
+
+}
+
+// テキストはみ出しを省略
+
+@mixin text-ellipsis() {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+
+// 天地中央
+@mixin vertical-center($flg : 0){
+	@if $flg == 0 {
+		position: relative;
+	} @else {
+		position: absolute;
+	}
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	   -moz-transform: translateY(-50%);
+	    -ms-transform: translateY(-50%);
+	     -o-transform: translateY(-50%);
+	        transform: translateY(-50%);
+}
+
+// 要素の傾き
+@mixin transform-rotate($direct: 2) {
+	//1:上
+	@if $direct == 1 {
+		-webkit-transform: rotate(-135deg);
+		transform: rotate(-135deg);
+	}
+	//2:右
+	@else if $direct == 2 {
+		-webkit-transform: rotate(-45deg);
+		transform: rotate(-45deg);
+	}
+	//3:下
+	@else if $direct == 3 {
+		-webkit-transform: rotate(45deg);
+		transform: rotate(45deg);
+	}
+	//4:左
+	@else if $direct == 4 {
+		-webkit-transform: rotate(135deg);
+		transform: rotate(135deg);
+	}
+}
+
+
+// 矢印 > ←こういうやつ
+@mixin arrow($color: #999, $width: 6px, $height: 6px, $borderWidth: 3px, $arrow-direction: 2, $arrow-positon: 1 , $position-x: 10px, $position-y: 42%) {
+	position: relative;
+	&:after {
+		content: "";
+		display: block;
+		width: $width;
+		height: $height;
+		position: absolute;
+	@if $arrow-positon == 1 { //right
+		right: $position-x;
+	}
+	@else if $arrow-positon == 2 { //right
+		left: $position-x;
+	}
+		top: $position-y;
+		border-style: solid;
+		border-width: $borderWidth;
+		border-color: $color;
+		border-left: none !important;
+		border-top: none !important;
+		@include transform-rotate($arrow-direction);
+	}
+}
+
+// 要素出力順のテストカウンター
+@mixin testCnt(){
+	counter-increment: testCnt;
+	&:before {
+		content: counter(testCnt);
+	}
+}
+
+
+

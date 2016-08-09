@@ -1,0 +1,186 @@
+@charset "utf-8";
+
+html {
+	overflow-y: scroll;
+	font-size: $f_size_base + px;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	color: #555;
+	@include fontsize(14);
+	font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "meiryo", "ＭＳ Ｐゴシック", "MS PGothic", Osaka, sans-serif;
+	line-height: 1.1;
+	background: #fff;
+}
+
+main,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+menu,
+nav,
+section {
+	display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+	@include fontsize(14);
+}
+
+p {
+	margin: 0;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+ol {
+	margin: 0;
+	padding: 0;
+}
+
+ul li,
+ol li {
+	margin: 0;
+	padding: 0;
+}
+
+dl,
+dt,
+dd {
+	margin: 0;
+	padding: 0;
+}
+
+form {
+	margin: 0;
+}
+
+fieldset {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+legend {
+	margin: 0;
+	padding: 0;
+}
+
+label {
+	cursor: pointer;
+}
+
+input,
+textarea {
+	margin: 0;
+	padding: 0;
+}
+
+button, input, select, textarea {
+	font-family: inherit;
+	font-size: 100%;
+	font-size: 1rem;
+}
+
+iframe {
+	display: block;
+	margin: 0;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+caption {
+	text-align: left;
+}
+
+th,
+td {
+	padding: 0;
+	text-align: left;
+}
+
+figure {
+	margin: 0;
+}
+
+img {
+	vertical-align: middle;
+	border: none;
+}
+a img {
+	&:hover {
+		@include opacity(.8);
+	}
+}
+
+em,
+i,
+address {
+	font-style: normal;
+}
+
+hr {
+	display: none;
+	margin: 1em 0;
+	padding: 0;
+	height: 1px;
+	border: 1px solid #cccccc;
+}
+
+a {
+	&:link {
+		color: $c_link;
+	}
+	&:visited {
+		color: $c_link;
+	}
+	&:active {
+		color: $c_link;
+	}
+	&:focus {
+		outline:none;
+	}
+	&:hover {
+		color: $c_link_h;
+		text-decoration: none;
+	}
+}
+
+// utillity
+
+.clr {
+	clear: both;
+	zoom: 1;
+	&:before,
+	&:after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+}
+
+.hide {
+	display: none;
+}
+
+
+
